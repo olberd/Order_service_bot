@@ -5,12 +5,12 @@ class Client(models.Model):
 	birthday = models.DateField('День рождения', null=True)
     сontact = models.CharField('Телефон', max_length=200)
 	address = models.CharField('Адрес', max_length=200)
-	
-	
+
+
 class Сourier(models.Model):
     name =  models.CharField('ФИО', max_length=200)
     сontact = models.CharField('Телефон', max_length=200)
-	
+
 
 class Order(models.Model):
     client = models.ForeignKey(Client)
@@ -20,22 +20,20 @@ class Order(models.Model):
 	delivery_address = models.CharField('Адрес доставки', max_length=200) #По умолчанию адрес клиента
 	delivery_date = models.DateField('Дата доставки')
 	delivery_time = models.DateField('Желаемое время доставки')
-	payment # Заглушка 
-	
-	
+	payment # Заглушка
+
+
 class Cake(models.Model):
-    number_of_levels
-	form
+    number_of_levels = models.MultipleChoiceField(choices=['1 уровень', '2 уровня', '3 уровня'])
+	form = models.MultipleChoiceField(choices=['Квадрат', 'Круг', 'Прямоугольник'])
 	topping
 	berries
 	decor
 	inscription
 	price
-	
-	
+
+
 class Delivery(models.Model):
     order = models.ForeignKey(Order)
 	courier = models.ForeignKey (Сourier)
 	delivery_time = models.DateField('Предполагаемое время доставки')
-	
-
