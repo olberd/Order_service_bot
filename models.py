@@ -26,10 +26,33 @@ class Cake(models.Model):
         ('Прямоугольник', 'Прямоугольник'),
     )
     form = models.CharField(max_length=20, choices=forms)
-    topping =
-    berries
-    decor
-    inscription
+    toppings = (
+        ('Без топпинга', 'Без топпинга'),
+        ('Белый соус', 'Белый соус'),
+        ('Карамельный сироп', 'Карамельный сироп'),
+        ('Кленовый сироп', 'Кленовый сироп'),
+        ('Клубничный сироп', 'Клубничный сироп'),
+        ('Черничный сироп', 'Черничный сироп'),
+        ('Молочный шоколад', 'Молочный шоколад'),
+    )
+    topping = models.CharField(max_length=30, choices=toppings)
+    berry_variety = (
+        ('Ежевика', 'Ежевика'),
+        ('Малина', 'Малина'),
+        ('Голубика', 'Голубика'),
+        ('Клубника', 'Клубника'),
+    )
+    berries = models.CharField(max_length=10, choices=berry_variety, null=True)
+    decor_variety = (
+        ('Фисташки', 'Фисташки'),
+        ('Безе', 'Безе'),
+        ('Фундук', 'Фундук'),
+        ('Пекан', 'Пекан'),
+        ('Маршмеллоу', 'Маршмеллоу'),
+        ('Марципан', 'Марципан'),
+    )
+    decor = models.CharField(max_length=10, choices=decor_variety, null=True)
+    inscription = models.CharField('Введите поздравительную надпись', max_length=100, null=True)
     price
 
 
