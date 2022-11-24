@@ -19,13 +19,13 @@ class Cake(models.Model):
         ('2 уровня', '2 уровня'),
         ('3 уровня', '3 уровня'),
     )
-    number_of_levels = models.CharField(max_length=10, choices=levels)
+    number_of_levels = models.ChoiceField(choices=levels)
     forms = (
         ('Квадрат', 'Квадрат'),
         ('Круг', 'Круг'),
         ('Прямоугольник', 'Прямоугольник'),
     )
-    form = models.CharField(max_length=20, choices=forms)
+    form = models.ChoiceField(choices=forms)
     toppings = (
         ('Без топпинга', 'Без топпинга'),
         ('Белый соус', 'Белый соус'),
@@ -35,14 +35,14 @@ class Cake(models.Model):
         ('Черничный сироп', 'Черничный сироп'),
         ('Молочный шоколад', 'Молочный шоколад'),
     )
-    topping = models.CharField(max_length=30, choices=toppings)
+    topping = models.ChoiceField(choices=toppings)
     berry_variety = (
         ('Ежевика', 'Ежевика'),
         ('Малина', 'Малина'),
         ('Голубика', 'Голубика'),
         ('Клубника', 'Клубника'),
     )
-    berries = models.CharField(max_length=10, choices=berry_variety, null=True)
+    berries = models.ChoiceField(choices=berry_variety, null=True)
     decor_variety = (
         ('Фисташки', 'Фисташки'),
         ('Безе', 'Безе'),
@@ -51,7 +51,7 @@ class Cake(models.Model):
         ('Маршмеллоу', 'Маршмеллоу'),
         ('Марципан', 'Марципан'),
     )
-    decor = models.CharField(max_length=10, choices=decor_variety, null=True)
+    decor = models.ChoiceField(choices=decor_variety, null=True)
     inscription = models.CharField('Введите поздравительную надпись', max_length=100, null=True)
     price
 
