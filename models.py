@@ -52,7 +52,8 @@ class Cake(models.Model):
         ('Марципан', 'Марципан'),
     )
     decor = models.ChoiceField(choices=decor_variety, null=True)
-    inscription = models.CharField('Введите поздравительную надпись', max_length=100, null=True)
+    inscription = models.CharField('Мы можем разместить на торте любую надпись, например: «С днем рождения!»', 
+                                   max_length=100, null=True)
     price
 
 
