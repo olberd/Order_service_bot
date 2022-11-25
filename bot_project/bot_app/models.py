@@ -84,7 +84,7 @@ class Berry(models.Model):
 class Decor(models.Model):
     decor = models.CharField(verbose_name='Декор', max_length=50)
     price = models.DecimalField(verbose_name='Цена', max_digits=10, decimal_places=2)
-    cake = models.ManyToManyField('Cake', verbose_name='Торт')
+    # cake = models.ManyToManyField('Cake', verbose_name='Торт')
 
     def __str__(self):
         return f'{self.decor} - {self.price} руб.'

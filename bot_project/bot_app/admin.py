@@ -25,7 +25,7 @@ class Order(admin.ModelAdmin):
 
 @admin.register(Cake)
 class Cake(admin.ModelAdmin):
-    fields = ('name', 'level', 'form', 'topping', 'berry', 'price')
+    fields = ('name', 'level', 'form', 'topping', 'berry', 'decor', 'price')
     list_display = ('name', 'level', 'form', 'topping', 'price')
 
 
