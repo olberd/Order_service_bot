@@ -17,6 +17,7 @@ print(levels[1].get('price'))
 oleg_token = '5945463620:AAGnF8c_DSNkx60EzEqI2riWeqVMA0gecDg'
 
 # token = '5813076949:AAFi0kUb8uA_N-NIhGaIsKEdOmyWZqoQono'
+
 bot = telebot.TeleBot(oleg_token)
 
 conn = sqlite3.connect('db.db', check_same_thread=False)
