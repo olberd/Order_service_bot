@@ -1,7 +1,7 @@
 from aiogram import Dispatcher, types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
-
+from aiogram.utils.callback_data import CallbackData
 from data_from_database import get_levels, get_form, get_toppings, get_berry, get_decor
 
 levels = get_levels()
@@ -9,6 +9,10 @@ forms = get_form()
 toppings = get_toppings()
 berries = get_berry()
 decors = get_decor()
+
+cb = CallbackData('ikb', 'action')
+
+# order_keyboard
 
 
 class OrderCake(StatesGroup):
@@ -79,11 +83,19 @@ async def decor_chosen(message: types.Message, state: FSMContext):
 
 async def cake_is_ready(message: types.Message, state: FSMContext):
     await state.update_data(cake_decor=message.text.lower())
+
+
     user_data = await state.get_data()
+
     await message.answer(text=f"Вы заказали: \n{user_data['cake_level']} \n{user_data['cake_form']}\n"
                               f"{user_data['cake_topping']}\n{user_data['cake_berry']}\n{user_data['cake_decor']}",
                          reply_markup=types.ReplyKeyboardRemove())
     await state.finish()
+
+
+async def make_order(message: types.Message, state: FSMContext, ):
+    pass
+
 
 
 def register_handlers_cake(dp: Dispatcher):
